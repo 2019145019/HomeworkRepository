@@ -22,6 +22,13 @@
   font-weight: 700;
 }
 
+.line {
+  margin-top: 20px;
+  background-color: black;
+  width: 530px;
+  height: 2px;
+}
+
 .signup-btn,
 .cancel-btn,
 .login-btn {
@@ -42,5 +49,3 @@
   border: 1px solid black;
   margin: 10px;
 }
-
-/* margin, width, height */
