@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Signup</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+  <body>
+    <h1 class="title">Signup page for Internet Programming class</h1>
+    <a class="login-redirect" href="login.html">Login</a>
+    <a class="signup-redirect" id="signup-redirect-signup" href="#">Signup</a>
+    <div class="line"></div>
+    <p>Please enter your id and password</p>
+    <p>
+      <label
+        >name: <input name="name" type="text" placeholder="Enter your name"
+      /></label>
+    </p>
+    <p>
+      <label
+        >tel:
+        <input
+          name="phone-number"
+          type="tel"
+          placeholder="(###) ###-####"
+          pattern="\(\d{3}\) \d{3}-\d{4}"
+      /></label>
+    </p>
+    <p>
+      <label
+        >grade:
+        <input name="grade" type="number" min="1" max="4" step="1" value="1"
+      /></label>
+    </p>
+    <p>
+      <label>e-mail: <input name="email" type="email" autofocus placeholder="Enter your email" /></label>
+    </p>
+    <p>
+      <label>password: <input type="password" required placeholder="Enter your password"/></label>
+    </p>
+    
+    <a class="signup-btn" href="#">Signup</a>
+    <a class="cancel-btn" href="#">Cancel</a>
+  </body>
+</html>
