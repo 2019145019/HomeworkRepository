@@ -2,6 +2,25 @@
 
 * {
   font-family: "Noto Sans KR", sans-serif;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 1020px;
+  margin: 0 auto;
+}
+.nav-bar {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  padding: 0;
+}
+
+.nav-bar li {
+  margin-right: 5px;
 }
 
 .title {
@@ -9,23 +28,21 @@
   font-size: 24px;
 }
 
-.login-redirect,
-.signup-redirect {
+.redirect-btn {
   color: black;
   text-decoration-line: none;
   border: 1px solid black;
   padding: 5px;
 }
 
-#signup-redirect-signup,
-#login-redirect-login {
+#page-now {
   font-weight: 700;
 }
 
 .line {
   margin-top: 20px;
   background-color: black;
-  width: 530px;
+  width: 1020px;
   height: 2px;
 }
 
