@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <title class="title">E-commerce</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="anim">Welcome to YeongHwan Commerce</h1>
+      <ul class="nav-bar">
+        <li>
+          <a class="redirect-btn" id="page-now" href="#">Main page</a>
+        </li>
+        <li>
+          <a class="redirect-btn" href="login.html">Login</a>
+        </li>
+        <li>
+          <a class="redirect-btn" href="signup.html">Signup</a>
+        </li>
+      </ul>
+      <div class="line"></div>
+
+      <div class="formbox">
+        <form>
+          <p>
+            <label>
+              Category filter:<br />
+              <select name="major" id="major">
+                <option>ALL</option>
+                <option>Biology</option>
+                <option>Computer science</option>
+                <option>Physics</option>
+                <option>Chemistry</option>
+              </select>
+            </label>
+          </p>
+          <p>
+            <label>
+              Keyword filter:<br />
+              <input type="search" id="search" />
+            </label>
+          </p>
+          <p>
+            <button onclick="click();">Search</button>
+          </p>
+        </form>
+      </div>
+      <div class="line"></div>
+      <div class="description-container">
+        <h2 class="description">Description</h2>
+        <div class="description-line"></div>
+        <p class="description-content">
+          major book for university.major book for university.major book for
+          university.major book for university.major book for university.major
+          book for university.major book for university.major book for
+          university.major book for university.
+        </p>
+      </div>
+
+      <div class="line"></div>
+      <div class="product-list">
+        <h2>Product list</h2>
+        <div class="showbox" id="showbox"></div>
+      </div>
+    </div>
+    <div class="showbox" id="showbox"></div>
+  </body>
+  <script src="script.js"></script>
+</html>

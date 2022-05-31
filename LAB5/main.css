@@ -1,0 +1,193 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+* {
+  font-family: "Noto Sans KR", sans-serif;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 1020px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* flexible-container */
+.nav-bar {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  padding: 0;
+}
+
+.anim {
+  animation-name: text-slide;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+/* 
+.product-list * {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-between;
+} */
+
+.image-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.product {
+  width: 200px;
+  height: 500px;
+  border: solid 1px black;
+  margin: auto;
+  text-decoration: none;
+}
+
+.product-name {
+  margin-top: 20px;
+  padding: 0 auto;
+  text-align: center;
+  color: #545454;
+  margin-bottom: 10px;
+}
+
+.rotate,
+.zoom {
+  transition: all 2s;
+}
+
+.rotate:hover {
+  transform: rotateZ(360deg);
+}
+
+.zoom:hover {
+  transform-origin: center 0;
+  transform: scale(2);
+}
+
+@keyframes text-slide {
+  to {
+    transform: translate(450px);
+  }
+}
+
+.nav-bar li {
+  margin-right: 5px;
+}
+
+.title {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 24px;
+}
+
+.redirect-btn {
+  color: black;
+  text-decoration-line: none;
+  border: 1px solid black;
+  padding: 5px;
+}
+
+#page-now {
+  font-weight: 700;
+}
+
+.line {
+  margin-top: 20px;
+  background-color: black;
+  width: 1020px;
+  height: 2px;
+  margin-bottom: 10px;
+}
+
+.signup-btn,
+.cancel-btn,
+.login-btn {
+  text-decoration-line: none;
+  text-align: center;
+  padding: 5px;
+}
+
+.signup-btn,
+.login-btn {
+  background-color: navy;
+  color: white;
+}
+
+.cancel-btn {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  margin: 10px;
+}
+
+/* LAB4 */
+.description-container {
+  flex-direction: column;
+}
+
+.description {
+  margin-top: 30px;
+  margin-bottom: 5px;
+}
+
+.description-line {
+  margin-top: 20px;
+  background-color: black;
+  width: 1020px;
+  height: 1px;
+  margin: 0px;
+}
+
+.description-content {
+  margin: 5px auto;
+}
+
+/* show box */
+.showbox{
+  flex:auto
+  border: 2px solid black;
+  width: 700px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.showbox>div{
+  position: relative;
+  width: 300px;
+  height: 300px;
+  padding-right: 50px;
+  padding-bottom: 20px;
+}
+.showbox>div>img{
+  width: 300px;
+  height: 300px;
+  padding-right: 50px;
+  padding-bottom: 20px;
+}
+.showbox>div>div{
+  display: none;
+  position: absolute;
+  background-color: yellow;
+}
+.showbox>div>div#name{
+  top: 0%;
+  left: 0%;
+  width: 300px;
+}
+.showbox>div>div#cost{
+  top: 80%;
+  left: 70%;
+  width: 50px;
+  height: 50px;
+}
