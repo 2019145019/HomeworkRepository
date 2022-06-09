@@ -18,8 +18,7 @@ window.onscroll = () => {
 
 // use fetch to load product.json
 function load(){
-    fetch("https://2019145019.github.io/HomeworkRepository/LAB5/product.json")
-    fetch("product.json")
+    fetch("assets/product.json")
     .then(response => response.json())
     .then(function(json){
         product = json;
@@ -115,7 +114,7 @@ function display(final_showlist){
 
         // img
         const eleimg = document.createElement('img')
-        eleimg.setAttribute("src", "img/" + final_showlist[i].img);
+        eleimg.setAttribute("src", "assets/img/" + final_showlist[i].img);
         ele.appendChild(eleimg);
 
         
