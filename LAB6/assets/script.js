@@ -1,20 +1,81 @@
 let product = new Array();
 let start = 0;
 let end = 8;
-let app = document.querySelector('#showbox');
-let maj = document.querySelector('#major');
-let sea = document.querySelector('#search');
-let but = document.querySelector('button');
-let cat = 'ALL';
-let find = '';
+let app = document.querySelector("#showbox");
+let maj = document.querySelector("#major");
+let sea = document.querySelector("#search");
+let but = document.querySelector("button");
+let cat = "ALL";
+let find = "";
 let final_showlist = [];
-document.addEventListener('DOMContentLoaded', load);
+// document.addEventListener("DOMContentLoaded", () => load);
+
 window.onscroll = () => {
-    // infinite scroll
-    if(window.innerHeight + window.scrollY >= document.body.scrollHeight){
-        addload();
+  // infinite scroll
+  if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
+    addload();
+  }
+};
+
+// function load() {
+const handleSearchButtonClick = (event) => {
+  event.preventDefault();
+  console.log(event);
+
+  const major = document.getElementById("major").value;
+  const keyword = document.getElementById("search").value;
+
+  const allProducts = document.querySelectorAll(".hidden-data .product");
+  const productsToDisplay1 = Array.from(allProducts).filter(
+    (productElement) => {
+      // filter categories
+      console.log(productElement.getAttribute("data-category"));
+      if (major === "ALL") {
+        return true;
+      } else {
+        return productElement.getAttribute("data-category") === major;
+      }
     }
-}
+  );
+  const productsToDisplay2 = productsToDisplay1.filter((productElement) => {
+    if (!keyword) return true;
+    return productElement
+      .getAttribute("data-category")
+      .toLowerCase()
+      .includes(keyword.toLowerCase());
+  });
+
+  const productsToDisplay = productsToDisplay2;
+
+  document.querySelector(".products").innerHTML = "";
+  document.querySelector(".products").innerHTML = productsToDisplay
+    .map((productElement) => {
+      const id = productElement.getAttribute("data-id");
+      const category = productElement.getAttribute("data-category");
+      const title = productElement.getAttribute("data-title");
+      const image = productElement.getAttribute("data-image");
+      return `
+        <div
+              class="product"
+              style="width: 200px; height: 200px; margin-bottom: 24px"
+              data-category="${category}"
+              data-title="${title}"
+            >
+              <a href="/products/${id}">
+                <img
+                  src="${image}"
+                  style="object-fit: cover; width: 100%"
+                />
+              </a>
+            </div>
+        `;
+    })
+    .join("");
+};
+
+const searchButton = document.getElementById("search-button");
+searchButton.addEventListener("click", handleSearchButtonClick);
+// }
 
 // // use fetch to load product.json
 // function load(){
@@ -23,7 +84,7 @@ window.onscroll = () => {
 //     .then(function(json){
 //         product = json;
 //         initial();
-//     }) 
+//     })
 // }
 
 // but.onclick = click;
@@ -110,18 +171,16 @@ window.onscroll = () => {
 //         elep.innerHTML = final_showlist[i].name;
 //         eletext.appendChild(elep);
 //         ele.appendChild(eletext);
-        
 
 //         // img
 //         const eleimg = document.createElement('img')
 //         eleimg.setAttribute("src", "assets/img/" + final_showlist[i].img);
 //         ele.appendChild(eleimg);
 
-        
 //         ele.addEventListener("click", show);
 //         app.appendChild(ele);
 //     }
-    
+
 // }
 
 // // add load

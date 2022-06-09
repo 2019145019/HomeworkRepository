@@ -1,20 +1,47 @@
-<h3>Product Info</h3>
-<ul>
-  <li><%= product.product_id %></li>
-  <li><%= product.product_image %></li>
-  <li><%= product.product_title %></li>
-  <li><%= product.product_price %></li>
-  <li><%= product.product_category %></li>
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="assets/main.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="anim">Welcome to YeongHwan Commerce</h1>
+      <ul class="nav-bar">
+        <li>
+          <a class="redirect-btn" id="page-now" href="/">Main page</a>
+        </li>
+        <li>
+          <a class="redirect-btn" href="/login">Login</a>
+        </li>
+        <li>
+          <a class="redirect-btn" href="/signup">Signup</a>
+        </li>
+      </ul>
+      <div class="line"></div>
+      <h3>Product Info</h3>
+      <ul>
+        <li><%= product.product_id %></li>
+        <img src="/<%= product.product_image %>" />
+        <li>title: <%= product.product_title %></li>
+        <li>price: <%= product.product_price %></li>
+        <li>category: <%= product.product_category %></li>
+      </ul>
 
-<h3>Comments</h3>
-<ul>
-  <% for (let comment of comments) { %>
-  <li><%= comment %></li>
-  <% } %>
-</ul>
+      <h3>Comments</h3>
+      <ul>
+        <% for (let comment of comments) { %>
+        <li><%= comment %></li>
+        <% } %>
+      </ul>
 
-<form action="/products/<%= product.product_id %>/comments" method="POST">
-  <input type="text" name="comment" />
-  <input type="submit" value="추가하기" />
-</form>
+      <form action="/products/<%= product.product_id %>/comments" method="POST">
+        <input type="text" name="comment" />
+        <input type="submit" value="submit" />
+      </form>
+    </div>
+  </body>
+</html>

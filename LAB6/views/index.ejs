@@ -23,29 +23,27 @@
       <div class="line"></div>
 
       <div class="formbox">
-        <form>
-          <p>
-            <label>
-              Category filter:<br />
-              <select name="major" id="major">
-                <option>ALL</option>
-                <option>Biology</option>
-                <option>Computer science</option>
-                <option>Physics</option>
-                <option>Chemistry</option>
-              </select>
-            </label>
-          </p>
-          <p>
-            <label>
-              Keyword filter:<br />
-              <input type="search" id="search" />
-            </label>
-          </p>
-          <p>
-            <button onclick="click();">Search</button>
-          </p>
-        </form>
+        <p>
+          <label>
+            Category filter:<br />
+            <select name="major" id="major">
+              <option value="ALL">ALL</option>
+              <option value="Biology">Biology</option>
+              <option value="Computer science">Computer science</option>
+              <option value="Physics">Physics</option>
+              <option value="Chemistry">Chemistry</option>
+            </select>
+          </label>
+        </p>
+        <p>
+          <label>
+            Keyword filter:<br />
+            <input type="search" id="search" />
+          </label>
+        </p>
+        <p>
+          <button id="search-button" type="button">Search</button>
+        </p>
       </div>
       <div class="line"></div>
       <div class="description-container">
@@ -62,13 +60,42 @@
       <div class="line"></div>
       <div class="product-list">
         <h2>Product list</h2>
-        <div class="showbox" id="showbox">
+
+        <div class="hidden-data" style="display: none">
           <% for(let product of products){ %>
-          <a href="/products/<%= product.product_id %>">
-            <li>
-              <img src="<%= product.product_image %>" />
-            </li>
-          </a>
+          <div
+            class="product"
+            style="width: 200px; height: 200px; margin-bottom: 24px"
+            data-id="<%= product.product_id %>"
+            data-category="<%= product.product_category %>"
+            data-title="<%= product.product_title %>"
+            data-image="<%= product.product_image %>"
+          >
+            <a href="/products/<%= product.product_id %>">
+              <img
+                src="<%= product.product_image %>"
+                style="object-fit: cover; width: 100%"
+              />
+            </a>
+          </div>
+          <% } %>
+        </div>
+
+        <div class="products">
+          <% for(let product of products){ %>
+          <div
+            class="product"
+            style="width: 200px; height: 200px; margin-bottom: 24px"
+            data-category="<%= product.product_category %>"
+            data-title="<%= product.product_title %>"
+          >
+            <a href="/products/<%= product.product_id %>">
+              <img
+                src="<%= product.product_image %>"
+                style="object-fit: cover; width: 100%"
+              />
+            </a>
+          </div>
           <% } %>
         </div>
       </div>
