@@ -1,0 +1,20 @@
+<h3>Product Info</h3>
+<ul>
+  <li><%= product.product_id %></li>
+  <li><%= product.product_image %></li>
+  <li><%= product.product_title %></li>
+  <li><%= product.product_price %></li>
+  <li><%= product.product_category %></li>
+</ul>
+
+<h3>Comments</h3>
+<ul>
+  <% for (let comment of comments) { %>
+  <li><%= comment %></li>
+  <% } %>
+</ul>
+
+<form action="/products/<%= product.product_id %>/comments" method="POST">
+  <input type="text" name="comment" />
+  <input type="submit" value="추가하기" />
+</form>

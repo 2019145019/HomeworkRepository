@@ -19,7 +19,7 @@
         <li>
           <a class="redirect-btn" href="signup">Signup</a>
         </li>
-      </ul`req.params.city`>
+      </ul>
       <div class="line"></div>
 
       <div class="formbox">
@@ -62,10 +62,17 @@
       <div class="line"></div>
       <div class="product-list">
         <h2>Product list</h2>
-        <div class="showbox" id="showbox"></div>
+        <div class="showbox" id="showbox">
+          <% for(let product of products){ %>
+          <a href="/products/<%= product.product_id %>">
+            <li>
+              <img src="<%= product.product_image %>" />
+            </li>
+          </a>
+          <% } %>
+        </div>
       </div>
     </div>
-    <div class="showbox" id="showbox"></div>
   </body>
   <script src="assets/script.js"></script>
 </html>

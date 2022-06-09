@@ -6,6 +6,8 @@ const bodyParser = require('body-parser')
 const app = express()
 const port = 3000
 
+const db = require("./database.js")
+
 app.set("view engine", "ejs")
 app.set('views', path.join(__dirname, 'views'))
 
@@ -14,7 +16,9 @@ app.use(bodyParser.json())
 app.use("/assets/", express.static(__dirname + "/assets"))
 
 app.get('/', (req, res) => {
-  res.render("index")
+  db.getAllProducts().then(products => {
+    res.render("index", {products})
+  })
 })
 
 app.get('/login', (req, res) => {
@@ -25,6 +29,23 @@ app.get('/signup', (req, res) => {
   res.render("signup")
 })
 
+app.get("/products/:id", (req, res) => {
+  const id = req.params.id
+  db.getProductById(id).then(product => {
+    db.getProductComments(id).then(comments => {
+      res.render("product", {product, comments})
+    })
+  })
+})
+
+app.post("/products/:id/comments", (req, res) => {
+  const productId = req.params.id;
+  const comment = req.body['comment'];
+
+  db.addCommentToProduct(productId, comment).then(() => {
+    res.redirect("/products/"+productId)
+  })
+})
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
